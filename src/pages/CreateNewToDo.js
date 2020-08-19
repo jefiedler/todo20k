@@ -19,6 +19,7 @@ function CreateNewToDo() {
         await postToDos({
             task,
             author,
+            createdAt: Date.now(),
         });
         setTask("");
         setAuthor("");
@@ -36,7 +37,7 @@ function CreateNewToDo() {
                 Author:
             <input type="text" value={author} onChange={handleAuthorChange} />
             </label>
-            <input type="submit" value="Send" />
+            <input type="submit" value="Send" disabled={!task || !author}/>
         </form>
         <footer>
             <Link to="/todo">ToDo-Liste</Link>
