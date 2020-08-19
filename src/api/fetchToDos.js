@@ -7,3 +7,17 @@ export async function fetchToDos() {
 
     return result;
 }
+
+export async function postToDos(todo) {
+    const respons = await fetch("http://localhost:3333/todos", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(todo)
+    });
+    if (!respons.ok){
+        throw respons;
+    }
+    const result = await respons.json();
+
+    return result;
+}
