@@ -3,6 +3,7 @@ import Title from '../components/Title';
 import List from '../components/List/List';
 import ListItem from '../components/List/ListItem';
 import {fetchToDos} from '../api/fetchToDos';
+import { Link } from 'react-router-dom';
 
 function ToDoList() {
     const [toDos, setToDos] = React.useState(null);
@@ -27,6 +28,9 @@ function ToDoList() {
             ))}
           </List>
         </main>
+        <footer>
+          <Link to="/createNewTask">Create new Task</Link>
+        </footer>
       </>
     );
   }
