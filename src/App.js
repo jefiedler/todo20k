@@ -1,37 +1,29 @@
-import React, { useEffect } from 'react';
-
-import './App.css';
-import Title from './components/Title';
-import List from './components/List/List';
-import ListItem from './components/List/ListItem';
-import { fetchToDos } from './api/fetchToDos';
-
+import React from 'react';
+import { BrowserRouter as Router, 
+  Switch, 
+  Route, 
+  Link } from 'react-router-dom';
+import ToDoList from './pages/ToDoList';
+import CreateNewToDo from './pages/CreateNewToDo';
 
 function App() {
-  const [toDos, setToDos] = React.useState(null);
-
-
-  useEffect(() => {
-    async function fetchToDo() {
-      const toDo = await fetchToDos();
-      setToDos(toDo);
-    }
-
-    fetchToDo();
-  }, []);
-
-  return (
+  return(
+  <Router>
     <div className="app">
-      <Title />
-      <main>
-        <List>
-          {toDos?.map((toDo) => (
-            <ListItem key={toDo.id} taskText={toDo.task}></ListItem>
-          ))}
-        </List>
-      </main>
+      <Switch>
+        <Route path="/todo"> 
+          <ToDoList />
+        </Route>
+        <Route path="/createNewTask">
+         <CreateNewToDo />
+        </Route>
+      </Switch>
+      <footer>
+        <Link to="/todo">ToDo-Liste</Link>
+        <Link to="/createNewTask">Create New Task</Link>
+      </footer>
     </div>
+  </Router>
   );
 }
-
 export default App;
