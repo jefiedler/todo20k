@@ -39,6 +39,11 @@
     {
       "task": "test task",
       "id": 10
+    },
+    {
+      "task": "Wäsche waschen",
+      "author": "Leon",
+      "id": 11
     }
   ]
 }

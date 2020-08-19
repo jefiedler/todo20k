@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { postToDos } from '../api/fetchToDos';
 
 function CreateNewToDo() {
     const [task, setTask] = React.useState("");
@@ -13,9 +14,14 @@ function CreateNewToDo() {
         setAuthor(event.target.value);
     }
 
-    function handleSubmit(event) {
-        console.log(task, author);
+    async function handleSubmit(event) {
         event.preventDefault();
+        await postToDos({
+            task,
+            author,
+        });
+        setTask("");
+        setAuthor("");
     }
 
 
