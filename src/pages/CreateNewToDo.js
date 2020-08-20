@@ -25,6 +25,7 @@ function CreateNewToDo() {
                 task,
                 author,
                 createdAt: Date.now(),
+                complete: false,
             });
             setTask("");
             setAuthor("");

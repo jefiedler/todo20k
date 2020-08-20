@@ -1,55 +1,18 @@
 {
   "todos": [
     {
-      "task": "test task",
+      "task": "first task",
+      "author": "leon",
+      "createdAt": 1597936334658,
+      "complete": false,
       "id": 1
     },
     {
-      "task": "test task",
+      "task": "secont task",
+      "author": "marwin",
+      "createdAt": 1597936351050,
+      "complete": false,
       "id": 2
-    },
-    {
-      "task": "test task",
-      "id": 3
-    },
-    {
-      "task": "test task",
-      "id": 4
-    },
-    {
-      "task": "test task",
-      "id": 5
-    },
-    {
-      "task": "test task",
-      "id": 6
-    },
-    {
-      "task": "test task",
-      "id": 7
-    },
-    {
-      "task": "test task",
-      "id": 8
-    },
-    {
-      "task": "test task",
-      "id": 9
-    },
-    {
-      "task": "test task",
-      "id": 10
-    },
-    {
-      "task": "Wäsche waschen",
-      "author": "Leon",
-      "id": 11
-    },
-    {
-      "task": "test",
-      "author": "test",
-      "createdAt": 1597843564687,
-      "id": 12
     }
   ]
 }
