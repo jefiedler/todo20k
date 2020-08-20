@@ -4,6 +4,7 @@ import { BrowserRouter as Router,
   Route} from 'react-router-dom';
 import ToDoList from './pages/ToDoList';
 import CreateNewToDo from './pages/CreateNewToDo';
+import Home from './pages/Home';
 
 function App() {
   return(
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route path="/createNewTask">
          <CreateNewToDo />
+        </Route>
+        <Route path="/">
+          <Home></Home>
         </Route>
       </Switch>
     </div>
