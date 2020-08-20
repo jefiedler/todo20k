@@ -1,31 +1,42 @@
 import React from 'react';
 import Title from '../components/Title';
-import List from '../components/List/List';
-import ListItem from '../components/List/ListItem';
-import {fetchToDos} from '../api/fetchToDos';
 import { Link } from 'react-router-dom';
-import useAsync from '../hooks/useAsync';
+import styled from '@emotion/styled';
+import MainContent from '../components/MainContent';
+
+
 
 function ToDoList() {
-    const { data: toDos, loading, error} = useAsync(fetchToDos);
  
     return (
-      <>
+      <Container>
         <Title />
-        <main>
-          <List>
-            {loading && <div>Loading...</div> }
-            {toDos?.map((toDo) => (
-              <ListItem key={toDo.id} taskText={toDo.task}></ListItem>
-            ))}
-            {error && <div>API is temporaely offline</div>}
-          </List>
-        </main>
-        <footer>
+        <MainBody>
+            <MainContent></MainContent>
+        </MainBody>
+        <Footer>
           <Link to="/createNewTask">Create new Task</Link>
-        </footer>
-      </>
+        </Footer>
+      </Container>
     );
   }
 
 export default ToDoList;
+
+// Styling
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+`
+const MainBody = styled.main`
+    flex-grow: 1 0 auto;
+    background: #F2F2F2;
+` 
+
+const Footer = styled.footer`
+    flex-shrink: 0;
+    background: #7D98A8;
+    padding: 10px;
+`
