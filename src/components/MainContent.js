@@ -2,17 +2,22 @@ import React from 'react';
 import useAsync from '../hooks/useAsync';
 import ToDo from './ToDo';
 import {fetchToDos} from '../api/fetchToDos';
+import { useQuery } from 'react-query';
 
 function MainContent() {
     const { data: toDos, loading, error} = useAsync(fetchToDos);
 
+    const todosQuery = useQuery('todos', fetchToDos);
+
+    console.log(todosQuery);
+
     return (
         <div>
-    	    {loading && <div>Loading...</div> }
-            {toDos?.map((toDo) => (
-              <ToDo key={toDo.id} task={toDo}></ToDo>
+    	    {todosQuery.isLoading && <div>Loading...</div> }
+            {todosQuery.data ?.map((todo) => (
+              <ToDo key={todo.id} task={todo}></ToDo>
             ))}
-            {error && <div>API is temporaely offline</div>}
+            {todosQuery.isError && <div>API is temporarily offline</div>}
         </div>
     );
 }
